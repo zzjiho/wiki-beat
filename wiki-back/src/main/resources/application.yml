@@ -1,0 +1,83 @@
+spring:
+  application:
+    name: wikimedia-bigdata-dashboard
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      fail-on-unknown-properties: false
+    time-zone: Asia/Seoul
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+    mapper:
+      require-handlers-for-java8-times: false
+
+kafka:
+  bootstrap:
+    servers: localhost:9092
+  producer:
+    retries: 3
+    batch-size: 32768
+    linger-ms: 5
+    buffer-memory: 67108864
+    compression-type: lz4
+    acks: 1
+  consumer:
+    group-id: wiki-bigdata-group
+    auto-offset-reset: latest
+    enable-auto-commit: false
+    max-poll-records: 1000
+    fetch-min-bytes: 50000
+    fetch-max-wait-ms: 500
+    session-timeout-ms: 30000
+    heartbeat-interval-ms: 10000
+
+redis:
+  host: localhost
+  port: 6379
+  timeout: 3000ms
+
+server:
+  port: 8888
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    wiki: INFO
+    wiki.kafka: WARN
+    wiki.kafka.consumer.service.RawEditConsumerService: INFO
+    wiki.service: INFO
+    org.apache.kafka: WARN
+    org.springframework.kafka: WARN
+    org.springframework.data.redis: WARN
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+
+wikimedia:
+  stream:
+    url: https://stream.wikimedia.org/v2/stream/recentchange
+    reconnect-delay: 5s
+    max-retries: 10
+
+bigdata:
+  processing:
+    batch-size: 1000
+    stats-interval: 60s
+    language-stats-interval: 300s
+    total-stats-interval: 600s
+  cache:
+    minute-stats-ttl: 3600s
+    language-stats-ttl: 86400s
+    total-stats-ttl: 43200s

@@ -1,0 +1,40 @@
+# Development environment configuration
+
+# Kafka (Local)
+kafka:
+  bootstrap:
+    servers: localhost:9092
+
+# Redis (Local)
+redis:
+  host: localhost
+  port: 6379
+
+# Logging (Verbose for development)
+logging:
+  level:
+    wiki: INFO
+    wiki.kafka: INFO
+    wiki.service: INFO
+    org.springframework.kafka: INFO
+    org.springframework.data.redis: INFO
+  charset:
+    console: UTF-8
+
+# Processing configuration (Faster intervals for development)
+bigdata:
+  processing:
+    batch-size: 100
+    stats-interval: 10s
+    language-stats-interval: 30s
+    total-stats-interval: 60s
+  cache:
+    minute-stats-ttl: 600s
+    language-stats-ttl: 3600s
+    total-stats-ttl: 7200s
+
+# Wikimedia reconnection settings
+wikimedia:
+  stream:
+    reconnect-delay: 3s
+    max-retries: 5

@@ -1,0 +1,29 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+.claude/
+
+# Backend (Java/Gradle)
+wiki-back/build/
+wiki-back/.gradle/
+wiki-back/out/
+*.class
+*.jar
+*.log
+
+# Frontend (Node.js)
+wiki-front/node_modules/
+wiki-front/dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml

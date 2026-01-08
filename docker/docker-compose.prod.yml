@@ -100,7 +100,7 @@ services:
       - wikimedia-network
 
   backend:
-    image: ghcr.io/zzjiho/wiki-beat-backend:latest
+    image: ghcr.io/zzjiho/wiki-beat-back:latest
     depends_on:
       - kafka
       - redis
@@ -118,7 +118,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    image: ghcr.io/zzjiho/wiki-beat-frontend:latest
+    image: ghcr.io/zzjiho/wiki-beat-front:latest
     depends_on:
       - backend
     ports:

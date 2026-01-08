@@ -42,7 +42,7 @@ jobs:
           context: ./wiki-back
           file: ./wiki-back/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/wiki-beat-backend:latest
+          tags: ghcr.io/${{ github.repository_owner }}/wiki-beat-back:latest
 
   deploy:
     needs: build-and-push

@@ -8,7 +8,7 @@ BLUE_PORT=8888
 GREEN_PORT=8889
 NGINX_CONF="/etc/nginx/conf.d/wikibeat.conf"
 NETWORK="shared-infra"
-IMAGE="ghcr.io/zzjiho/wiki-beat-backend:latest"
+IMAGE="ghcr.io/zzjiho/wiki-beat-back:latest"
 
 echo "========================================="
 echo "Backend Zero-Downtime Deployment Started"

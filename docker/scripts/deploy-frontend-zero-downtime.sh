@@ -9,7 +9,7 @@ BLUE_PORT=3000
 GREEN_PORT=3001
 NGINX_CONF="/etc/nginx/conf.d/wikibeat.conf"
 NETWORK="shared-infra"
-IMAGE="ghcr.io/zzjiho/wiki-beat-frontend:latest"
+IMAGE="ghcr.io/zzjiho/wiki-beat-front:latest"
 
 echo "=========================================="
 echo "Frontend Zero-Downtime Deployment Started"

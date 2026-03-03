@@ -33,7 +33,7 @@ public class WikiStreamConnector {
             connection.setRequestProperty("Cache-Control", "no-cache");
             connection.setRequestProperty("User-Agent", "WikimediaBigDataDashboard/1.0 (https://github.com/wikimedia/bigdata; contact@example.com)");
             connection.setConnectTimeout(10000);
-            connection.setReadTimeout(0);
+            connection.setReadTimeout(60000);
 
             connection.connect();
 
